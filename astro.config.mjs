@@ -1,7 +1,9 @@
 import { defineConfig } from 'astro/config';
 
-// `site` entra quando o domínio existir (sitemap e hreflang absolutos).
+// GitHub Pages: o site fica em julliafs.github.io/portfolio. Com domínio próprio, trocar `site` e tirar `base`.
 export default defineConfig({
+  site: 'https://julliafs.github.io',
+  base: '/portfolio',
   trailingSlash: 'never',
   build: { format: 'directory' },
 });

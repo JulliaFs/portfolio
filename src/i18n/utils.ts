@@ -18,12 +18,17 @@ export function t(lang: Lang, key: string): string {
   return value;
 }
 
+/** Prefixa o `base` do Astro (no GitHub Pages o site fica em /portfolio). */
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+export const withBase = (path: string) => (path.startsWith('/') ? `${base}${path}` : path);
+
 const projectSegment: Record<Lang, string> = { pt: 'projetos', en: 'projects', es: 'proyectos' };
-const prefix = (lang: Lang) => (lang === defaultLang ? '' : `/${lang}`);
+const prefix = (lang: Lang) => base + (lang === defaultLang ? '' : `/${lang}`);
 
 const caseSegment: Record<Lang, string> = { pt: 'casos', en: 'cases', es: 'casos' };
 export const casePath = (lang: Lang, slug: string) => `${prefix(lang)}/${caseSegment[lang]}/${slug}`;
 
 export const homePath = (lang: Lang) => prefix(lang) || '/';
+const sectionBase = (lang: Lang) => (homePath(lang) === '/' ? '' : homePath(lang));
 export const projectPath = (lang: Lang, slug: string) => `${prefix(lang)}/${projectSegment[lang]}/${slug}`;
-export const sectionPath = (lang: Lang, id: string) => `${homePath(lang) === '/' ? '' : homePath(lang)}/#${id}`;
+export const sectionPath = (lang: Lang, id: string) => `${sectionBase(lang)}/#${id}`;

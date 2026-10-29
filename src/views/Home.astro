@@ -6,7 +6,7 @@ import { projects } from '../data/projects';
 import { cases, localizedCase } from '../data/cases';
 import { tech, levelOrder } from '../data/tech';
 import { profile } from '../data/profile';
-import { homePath, casePath, t, langs, type Lang } from '../i18n/utils';
+import { homePath, casePath, withBase, t, langs, type Lang } from '../i18n/utils';
 interface Props { lang: Lang }
 const { lang } = Astro.props;
 const alt = Object.fromEntries(langs.map((l) => [l, homePath(l)])) as Record<Lang, string>;
@@ -15,7 +15,8 @@ const others = projects.filter((p) => !p.featured);
 const groups = levelOrder
   .map((lvl) => ({ lvl, items: tech.filter((x) => x.level === lvl) }))
   .filter((g) => g.items.length);
-const cv = profile.cv[lang] ?? profile.cv.pt;
+const cvFile = profile.cv[lang] ?? profile.cv.pt;
+const cv = cvFile && withBase(cvFile);
 ---
 <Base lang={lang} title={t(lang, 'meta.title')} description={t(lang, 'meta.description')} alt={alt}>
   <main id="conteudo" class="wrap">
@@ -33,7 +34,7 @@ const cv = profile.cv[lang] ?? profile.cv.pt;
       </div>
       <div class="photo">
         {profile.photo
-          ? <img src={profile.photo} alt={t(lang, 'hero.photoAlt')} width="180" height="180" />
+          ? <img src={withBase(profile.photo)} alt={t(lang, 'hero.photoAlt')} width="180" height="180" />
           : <span>{t(lang, 'hero.photoPending')}</span>}
       </div>
     </section>

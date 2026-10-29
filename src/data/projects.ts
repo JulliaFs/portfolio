@@ -70,8 +70,8 @@ export const projects: Project[] = [
     status: 'live',
     stack: ['Next.js', 'React', 'TypeScript', 'Tailwind', 'Supabase', 'PWA'],
     repoPrivate: true,
-    links: [],
-    pendingLink: 'Link do app publicado e crédito ao Kaue (pergunta 4)',
+    links: [{ label: 'familiaibcd.com.br', href: 'https://familiaibcd.com.br' }],
+    pendingLink: 'Crédito ao Kaue (pergunta 4)',
     screens: [],
     screensPending: true,
     text: {
