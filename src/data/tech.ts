@@ -23,6 +23,9 @@ export const tech: Tech[] = [
   { name: 'SQL / Oracle', level: null },
   { name: 'Java (POO)', level: null },
   { name: 'Python', level: null },
+  { name: 'Flask', level: null },
+  { name: 'PostgreSQL', level: null },
+  { name: 'Google Apps Script', level: null },
   { name: 'PWA', level: null },
   { name: 'Git e GitHub', level: null },
   { name: 'Vercel', level: null },
@@ -30,4 +33,6 @@ export const tech: Tech[] = [
   { name: 'Modelagem (UML, casos de uso, ER)', level: null },
   { name: "Ren'Py", level: null },
   { name: 'Desenvolvimento com IA (Claude)', level: null },
+  { name: 'Claude Code (agentes, subagentes, MCP)', level: null },
+  { name: 'Gemini / Vertex AI', level: null },
 ];
