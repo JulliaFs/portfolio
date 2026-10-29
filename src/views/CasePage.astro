@@ -1,0 +1,42 @@
+---
+import Base from '../layouts/Base.astro';
+import Pending from '../components/Pending.astro';
+import { localizedCase, type Case } from '../data/cases';
+import { casePath, sectionPath, t, langs, type Lang } from '../i18n/utils';
+interface Props { lang: Lang; item: Case }
+const { lang, item } = Astro.props;
+const { text, translated } = localizedCase(item, lang);
+const alt = Object.fromEntries(langs.map((l) => [l, casePath(l, item.slug)])) as Record<Lang, string>;
+---
+<Base lang={lang} title={`${text.title} · ${t(lang, 'meta.title')}`} description={text.summary} alt={alt}>
+  <main id="conteudo" class="wrap">
+    <div class="project-head read">
+      <a class="back" href={sectionPath(lang, 'cases')}>← {t(lang, 'cases.back')}</a>
+      <p class="eyebrow">{t(lang, 'cases.title')}</p>
+      <h1>{text.title}</h1>
+      <p class="muted" style="font-size: var(--fs-1)">{text.summary}</p>
+      {!translated && <p class="notice" role="note">{t(lang, 'translationPending')}</p>}
+    </div>
+
+    <div class="facts read">
+      <section><h2>{t(lang, 'cases.problem')}</h2><p>{text.problem}</p></section>
+      <section><h2>{t(lang, 'cases.built')}</h2><p>{text.built}</p></section>
+      <section><h2>{t(lang, 'cases.ai')}</h2><p>{text.ai}</p></section>
+      {text.memory && <section><h2>{t(lang, 'cases.memory')}</h2><p>{text.memory}</p></section>}
+      <section>
+        <h2>{t(lang, 'cases.tools')}</h2>
+        <ul class="chips">{item.tools.map((x) => <li>{x}</li>)}</ul>
+      </section>
+      <section>
+        <h2>{t(lang, 'cases.result')}</h2>
+        <p>{text.result}</p>
+        {item.resultPending && <p><Pending lang={lang} label={`${t(lang, 'cases.resultPending')}: ${item.resultPending}`} /></p>}
+      </section>
+      <section>
+        <h2>{t(lang, 'cases.demo')}</h2>
+        <p><Pending lang={lang} label={t(lang, 'cases.demoPending')} /></p>
+      </section>
+      <p class="muted">{t(lang, 'cases.privacy')}</p>
+    </div>
+  </main>
+</Base>

@@ -1,0 +1,27 @@
+---
+import { langs, langNames, htmlLang, homePath, sectionPath, t, type Lang } from '../i18n/utils';
+interface Props { lang: Lang; alt: Record<Lang, string> }
+const { lang, alt } = Astro.props;
+const items = ['cases', 'projects', 'tech', 'education', 'about', 'contact'] as const;
+---
+<a class="skip" href="#conteudo">{t(lang, 'a11y.skip')}</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href={homePath(lang)}>{t(lang, 'hero.name')}</a>
+    <nav aria-label={t(lang, 'a11y.mainNav')}>
+      <ul>
+        {items.map((id) => <li><a href={sectionPath(lang, id)}>{t(lang, `nav.${id}`)}</a></li>)}
+      </ul>
+    </nav>
+    <div class="tools">
+      <nav class="lang" aria-label={t(lang, 'a11y.language')}>
+        {langs.map((l) => (
+          <a href={alt[l]} lang={htmlLang[l]} hreflang={htmlLang[l]} aria-current={l === lang ? 'true' : undefined}>{langNames[l]}</a>
+        ))}
+      </nav>
+      <button id="theme-btn" class="theme-btn" type="button"
+        data-to-light={t(lang, 'a11y.themeToLight')} data-to-dark={t(lang, 'a11y.themeToDark')}
+        aria-label={t(lang, 'a11y.themeToDark')}>☾</button>
+    </div>
+  </div>
+</header>

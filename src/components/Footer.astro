@@ -1,0 +1,11 @@
+---
+import { t, type Lang } from '../i18n/utils';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+---
+<footer class="site-footer">
+  <div class="wrap">
+    <p>{t(lang, 'footer.a11y')}</p>
+    <p>{t(lang, 'footer.rights')} © {new Date().getFullYear()}</p>
+  </div>
+</footer>

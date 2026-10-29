@@ -1,0 +1,62 @@
+/*
+  TOKENS DE DESIGN: a identidade visual inteira mora aqui.
+  Para trocar de direção visual (editorial, terminal, caderno), edite só este arquivo
+  (e, se quiser, as fontes em Base.astro). Os componentes só usam var(--...).
+  Tema atual: neutro, azul-tinta, pronto para ser substituído.
+*/
+:root {
+  /* cores: superfície e texto */
+  --bg: #f6f7fa;
+  --surface: #ffffff;
+  --fg: #181c27;
+  --muted: #535c70;      /* 6.6:1 sobre --bg */
+  --line: #d9dde7;
+  /* cores: acento */
+  --accent: #2d3fc4;     /* 7.5:1 sobre --bg */
+  --accent-fg: #ffffff;
+  --accent-soft: #e5e8fb;
+  /* cores: marcador "a preencher" */
+  --todo-bg: #fff1d6;
+  --todo-fg: #7a4700;
+  --todo-line: #e6b768;
+
+  /* tipografia */
+  --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --font-body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, Consolas, monospace;
+  --fs-0: 1rem;
+  --fs-1: 1.125rem;
+  --fs-2: 1.4rem;
+  --fs-3: clamp(1.7rem, 3vw, 2.1rem);
+  --fs-4: clamp(2.3rem, 6vw, 3.6rem);
+  --fs-small: 0.875rem;
+
+  /* espaçamento, forma e largura */
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2.5rem;
+  --space-5: 4rem;
+  --space-6: 6rem;
+  --radius: 12px;
+  --radius-sm: 8px;
+  --measure: 68ch;
+  --wide: 1040px;
+  --gutter: 16px;
+  --focus: 3px solid var(--accent);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #11131a; --surface: #191c25; --fg: #e8eaf1; --muted: #a2a9ba; --line: #2b3040;
+    --accent: #9aa6ff; --accent-fg: #11131a; --accent-soft: #232a52;
+    --todo-bg: #3a2c12; --todo-fg: #f2b860; --todo-line: #6b5020;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #11131a; --surface: #191c25; --fg: #e8eaf1; --muted: #a2a9ba; --line: #2b3040;
+  --accent: #9aa6ff; --accent-fg: #11131a; --accent-soft: #232a52;
+  --todo-bg: #3a2c12; --todo-fg: #f2b860; --todo-line: #6b5020;
+  color-scheme: dark;
+}

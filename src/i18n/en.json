@@ -1,0 +1,110 @@
+{
+  "meta": {
+    "title": "Jullia's Portfolio",
+    "description": "Development portfolio: web apps built for real use, with a focus on security and accessibility."
+  },
+  "a11y": {
+    "skip": "Skip to content",
+    "mainNav": "Main navigation",
+    "language": "Language",
+    "themeToLight": "Switch to light mode",
+    "themeToDark": "Switch to dark mode"
+  },
+  "nav": {
+    "projects": "Projects",
+    "tech": "Technologies",
+    "education": "Education",
+    "about": "About",
+    "contact": "Contact",
+    "cases": "Case studies"
+  },
+  "pending": "to be filled in",
+  "translationPending": "Translation under review: the content of this page still appears in Portuguese.",
+  "hero": {
+    "eyebrow": "Portfolio",
+    "name": "Jullia",
+    "role": "ADS student and AI Builder",
+    "intro": "Automation, agents and applied AI: I start from the operator’s problem and ship in days.",
+    "ctaProjects": "See projects",
+    "ctaCv": "Download résumé",
+    "photoAlt": "Photo of Jullia",
+    "photoPending": "photo to be filled in"
+  },
+  "projects": {
+    "title": "Projects",
+    "lead": "Each project covers the problem, the decisions and the result.",
+    "featured": "Featured",
+    "others": "More projects",
+    "view": "View project",
+    "back": "Back to projects",
+    "problem": "Problem",
+    "built": "What was built",
+    "decisions": "Decisions worth discussing",
+    "result": "Result",
+    "stack": "Stack",
+    "links": "Links",
+    "screens": "Screens",
+    "screenPending": "screenshot to be filled in",
+    "noRepo": "The repository is private: only screenshots and a description are shown here.",
+    "status": {
+      "live": "In real use",
+      "beta": "Closed beta",
+      "school": "FIAP",
+      "study": "Accessibility",
+      "wip": "In development",
+      "work": "Work project"
+    }
+  },
+  "tech": {
+    "title": "Technologies",
+    "lead": "Grouped by familiarity, so nobody has to guess.",
+    "levelPending": "level to be filled in",
+    "groups": {
+      "daily": "Daily use",
+      "projects": "Used in projects",
+      "studying": "Learning",
+      "unset": "Level to be defined"
+    }
+  },
+  "education": {
+    "title": "Education and certificates",
+    "school": "FIAP",
+    "course": "Systems Analysis and Development (TDS course)",
+    "period": "2026 – present (1st year) · expected graduation:",
+    "certs": "Certificates",
+    "certHtml": "HTML",
+    "certPython": "Python Basics"
+  },
+  "about": {
+    "title": "About",
+    "text": "First-person text to be filled in, written or approved by her."
+  },
+  "contact": {
+    "title": "Contact",
+    "lead": "For jobs, freelance work or just a chat.",
+    "email": "Email",
+    "linkedin": "LinkedIn",
+    "github": "GitHub",
+    "cv": "Résumé (PDF)"
+  },
+  "footer": {
+    "a11y": "This site aims to follow WCAG 2.2 level AA. You can browse it with the keyboard alone (Tab, Enter).",
+    "rights": "Built with Astro."
+  },
+  "cases": {
+    "title": "Case studies",
+    "lead": "Four tools the operation uses every day. Each case covers the problem, what I built, how AI was used, the tools and the result.",
+    "view": "View case",
+    "back": "Back to cases",
+    "problem": "Problem",
+    "built": "What I built",
+    "ai": "How AI was used",
+    "memory": "Memory across conversations",
+    "tools": "Tools",
+    "result": "Result",
+    "demo": "Demo",
+    "demoPending": "demo video to be filled in",
+    "resultPending": "number to be filled in",
+    "privacy": "Work cases: client names and personal data were left out."
+  }
+}

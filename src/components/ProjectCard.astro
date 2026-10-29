@@ -1,0 +1,15 @@
+---
+import { localized, type Project } from '../data/projects';
+import { projectPath, t, type Lang } from '../i18n/utils';
+interface Props { project: Project; lang: Lang }
+const { project, lang } = Astro.props;
+const { text } = localized(project, lang);
+---
+<article class={`card ${project.featured ? 'featured' : ''}`}>
+  <span class="tag">{t(lang, `projects.status.${project.status}`)}</span>
+  <h3><a href={projectPath(lang, project.slug)}>{text.name}</a></h3>
+  <p>{text.tagline}</p>
+  <ul class="chips" aria-label={t(lang, 'projects.stack')}>
+    {project.stack.slice(0, 5).map((s) => <li>{s}</li>)}
+  </ul>
+</article>

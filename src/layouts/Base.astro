@@ -1,0 +1,64 @@
+---
+import '../styles/tokens.css';
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { langs, htmlLang, type Lang } from '../i18n/utils';
+
+interface Props {
+  lang: Lang;
+  title: string;
+  description: string;
+  /** caminho equivalente desta página em cada idioma (troca de idioma e hreflang) */
+  alt: Record<Lang, string>;
+}
+const { lang, title, description, alt } = Astro.props;
+---
+<!doctype html>
+<html lang={htmlLang[lang]}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    {langs.map((l) => <link rel="alternate" hreflang={htmlLang[l]} href={alt[l]} />)}
+    <link rel="alternate" hreflang="x-default" href={alt.pt} />
+    <meta name="theme-color" content="#f6f7fa" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#11131a" media="(prefers-color-scheme: dark)" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" />
+    <!-- aplica o tema salvo antes da pintura, para não piscar -->
+    <script is:inline>
+      try { var s = localStorage.getItem('theme'); if (s === 'light' || s === 'dark') document.documentElement.dataset.theme = s; } catch (e) {}
+    </script>
+  </head>
+  <body>
+    <Header lang={lang} alt={alt} />
+    <slot />
+    <Footer lang={lang} />
+    <script is:inline>
+      (function () {
+        var btn = document.getElementById('theme-btn');
+        if (!btn) return;
+        function current() {
+          var d = document.documentElement.dataset.theme;
+          if (d) return d;
+          return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        }
+        function paint() {
+          var dark = current() === 'dark';
+          btn.setAttribute('aria-label', dark ? btn.dataset.toLight : btn.dataset.toDark);
+          btn.textContent = dark ? '☀' : '☾';
+        }
+        btn.addEventListener('click', function () {
+          var next = current() === 'dark' ? 'light' : 'dark';
+          document.documentElement.dataset.theme = next;
+          try { localStorage.setItem('theme', next); } catch (e) {}
+          paint();
+        });
+        paint();
+      })();
+    </script>
+  </body>
+</html>

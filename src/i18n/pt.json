@@ -1,0 +1,110 @@
+{
+  "meta": {
+    "title": "Portfólio de Jullia",
+    "description": "Portfólio de desenvolvimento: apps web com foco em uso real, segurança e acessibilidade."
+  },
+  "a11y": {
+    "skip": "Pular para o conteúdo",
+    "mainNav": "Navegação principal",
+    "language": "Idioma",
+    "themeToLight": "Mudar para o modo claro",
+    "themeToDark": "Mudar para o modo escuro"
+  },
+  "nav": {
+    "projects": "Projetos",
+    "tech": "Tecnologias",
+    "education": "Formação",
+    "about": "Sobre",
+    "contact": "Contato",
+    "cases": "Casos"
+  },
+  "pending": "a preencher",
+  "translationPending": "Tradução em revisão: o conteúdo desta página ainda aparece em português.",
+  "hero": {
+    "eyebrow": "Portfólio",
+    "name": "Jullia",
+    "role": "Estudante de ADS e AI Builder",
+    "intro": "Automação, agentes e IA aplicada: começo pelo problema de quem opera e coloco em produção em dias.",
+    "ctaProjects": "Ver projetos",
+    "ctaCv": "Baixar currículo",
+    "photoAlt": "Foto de Jullia",
+    "photoPending": "foto a preencher"
+  },
+  "projects": {
+    "title": "Projetos",
+    "lead": "Cada projeto conta o problema, as decisões e o resultado.",
+    "featured": "Em destaque",
+    "others": "Outros projetos",
+    "view": "Ver o projeto",
+    "back": "Voltar aos projetos",
+    "problem": "Problema",
+    "built": "O que foi feito",
+    "decisions": "Decisões que valem conversa",
+    "result": "Resultado",
+    "stack": "Stack",
+    "links": "Links",
+    "screens": "Telas",
+    "screenPending": "print a preencher",
+    "noRepo": "O repositório é privado: aqui entram só prints e descrição.",
+    "status": {
+      "live": "Em uso real",
+      "beta": "Beta fechado",
+      "school": "FIAP",
+      "study": "Acessibilidade",
+      "wip": "Em desenvolvimento",
+      "work": "Projeto de trabalho"
+    }
+  },
+  "tech": {
+    "title": "Tecnologias",
+    "lead": "Separadas por nível de familiaridade, para ninguém precisar adivinhar.",
+    "levelPending": "nível a preencher",
+    "groups": {
+      "daily": "Uso no dia a dia",
+      "projects": "Já usei em projetos",
+      "studying": "Estudando",
+      "unset": "Nível a definir"
+    }
+  },
+  "education": {
+    "title": "Formação e certificados",
+    "school": "FIAP",
+    "course": "Análise e Desenvolvimento de Sistemas (curso TDS)",
+    "period": "2026 – atual (1º ano) · previsão de conclusão:",
+    "certs": "Certificados",
+    "certHtml": "HTML",
+    "certPython": "Python Básico"
+  },
+  "about": {
+    "title": "Sobre",
+    "text": "Texto em primeira pessoa a preencher, escrito ou aprovado por ela."
+  },
+  "contact": {
+    "title": "Contato",
+    "lead": "Para vagas, freelas ou uma conversa.",
+    "email": "E-mail",
+    "linkedin": "LinkedIn",
+    "github": "GitHub",
+    "cv": "Currículo em PDF"
+  },
+  "footer": {
+    "a11y": "Este site busca seguir o WCAG 2.2 nível AA. Dá para navegar só pelo teclado (Tab, Enter).",
+    "rights": "Feito com Astro."
+  },
+  "cases": {
+    "title": "Casos",
+    "lead": "Quatro ferramentas que a operação usa todo dia. Cada caso traz o problema, o que construí, como a IA entrou, as ferramentas e o resultado.",
+    "view": "Ver o caso",
+    "back": "Voltar aos casos",
+    "problem": "Problema",
+    "built": "O que construí",
+    "ai": "Como a IA entrou",
+    "memory": "Memória entre conversas",
+    "tools": "Ferramentas",
+    "result": "Resultado",
+    "demo": "Demo",
+    "demoPending": "vídeo de demo a preencher",
+    "resultPending": "número a preencher",
+    "privacy": "Casos de trabalho: nomes de clientes e dados de pessoas foram omitidos."
+  }
+}

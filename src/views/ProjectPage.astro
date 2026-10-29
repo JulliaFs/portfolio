@@ -1,0 +1,76 @@
+---
+import Base from '../layouts/Base.astro';
+import Pending from '../components/Pending.astro';
+import { localized, type Project } from '../data/projects';
+import { projectPath, sectionPath, t, langs, type Lang } from '../i18n/utils';
+interface Props { lang: Lang; project: Project }
+const { lang, project } = Astro.props;
+const { text, translated } = localized(project, lang);
+const alt = Object.fromEntries(langs.map((l) => [l, projectPath(l, project.slug)])) as Record<Lang, string>;
+---
+<Base lang={lang} title={`${text.name} · ${t(lang, 'meta.title')}`} description={text.tagline} alt={alt}>
+  <main id="conteudo" class="wrap">
+    <div class="project-head read">
+      <a class="back" href={sectionPath(lang, 'projects')}>← {t(lang, 'projects.back')}</a>
+      <p class="eyebrow">{t(lang, `projects.status.${project.status}`)}</p>
+      <h1>{text.name}</h1>
+      <p class="muted" style="font-size: var(--fs-1)">{text.tagline}</p>
+      {!translated && <p class="notice" role="note">{t(lang, 'translationPending')}</p>}
+    </div>
+
+    <div class="facts read">
+      {text.problem && (
+        <section>
+          <h2>{t(lang, 'projects.problem')}</h2>
+          <p>{text.problem}</p>
+        </section>
+      )}
+      {text.built && (
+        <section>
+          <h2>{t(lang, 'projects.built')}</h2>
+          <p>{text.built}</p>
+        </section>
+      )}
+      {text.decisions.length > 0 && (
+        <section>
+          <h2>{t(lang, 'projects.decisions')}</h2>
+          <ul>{text.decisions.map((d) => <li>{d}</li>)}</ul>
+        </section>
+      )}
+      {text.result && (
+        <section>
+          <h2>{t(lang, 'projects.result')}</h2>
+          <p>{text.result}</p>
+        </section>
+      )}
+      <section>
+        <h2>{t(lang, 'projects.stack')}</h2>
+        <ul class="chips">{project.stack.map((s) => <li>{s}</li>)}</ul>
+      </section>
+    </div>
+
+    <section aria-labelledby="h-screens">
+      <h2 id="h-screens">{t(lang, 'projects.screens')}</h2>
+      {project.screens.length > 0 && (
+        <div class="shots">
+          {project.screens.map((s) => (
+            <figure>
+              <img src={s.src} alt={s.alt} loading="lazy" />
+              <figcaption>{s.caption}</figcaption>
+            </figure>
+          ))}
+        </div>
+      )}
+      {project.screensPending && <p><Pending lang={lang} label={t(lang, 'projects.screenPending')} /></p>}
+    </section>
+
+    <section aria-labelledby="h-links">
+      <h2 id="h-links">{t(lang, 'projects.links')}</h2>
+      {project.repoPrivate && <p class="muted read">{t(lang, 'projects.noRepo')}</p>}
+      <div class="links">
+        {project.links.map((l) => <a class="btn ghost" href={l.href} rel="noopener">{l.label}</a>)}
+        {project.pendingLink && <Pending lang={lang} label={project.pendingLink} />}
+      </div>
+    </section>
+  </main>
+</Base>

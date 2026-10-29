@@ -1,0 +1,123 @@
+---
+import Base from '../layouts/Base.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import Pending from '../components/Pending.astro';
+import { projects } from '../data/projects';
+import { cases, localizedCase } from '../data/cases';
+import { tech, levelOrder } from '../data/tech';
+import { profile } from '../data/profile';
+import { homePath, casePath, t, langs, type Lang } from '../i18n/utils';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const alt = Object.fromEntries(langs.map((l) => [l, homePath(l)])) as Record<Lang, string>;
+const featured = projects.filter((p) => p.featured);
+const others = projects.filter((p) => !p.featured);
+const groups = levelOrder
+  .map((lvl) => ({ lvl, items: tech.filter((x) => x.level === lvl) }))
+  .filter((g) => g.items.length);
+const cv = profile.cv[lang] ?? profile.cv.pt;
+---
+<Base lang={lang} title={t(lang, 'meta.title')} description={t(lang, 'meta.description')} alt={alt}>
+  <main id="conteudo" class="wrap">
+    <section class="hero" aria-labelledby="h-hero">
+      <div class="stack">
+        <p class="eyebrow">{t(lang, 'hero.eyebrow')}</p>
+        <h1 id="h-hero">{t(lang, 'hero.name')}. {t(lang, 'hero.role')}.</h1>
+        <p class="muted read" style="font-size: var(--fs-1)">{profile.tagline[lang] ?? t(lang, 'hero.intro')}</p>
+        <div class="actions">
+          <a class="btn" href="#projects">{t(lang, 'hero.ctaProjects')}</a>
+          {cv
+            ? <a class="btn ghost" href={cv}>{t(lang, 'hero.ctaCv')}</a>
+            : <span class="todo">{t(lang, 'hero.ctaCv')}: {t(lang, 'pending')}</span>}
+        </div>
+      </div>
+      <div class="photo">
+        {profile.photo
+          ? <img src={profile.photo} alt={t(lang, 'hero.photoAlt')} width="180" height="180" />
+          : <span>{t(lang, 'hero.photoPending')}</span>}
+      </div>
+    </section>
+
+    <section id="cases" aria-labelledby="h-cases">
+      <div class="read stack">
+        <h2 id="h-cases">{t(lang, 'cases.title')}</h2>
+        <p class="muted">{t(lang, 'cases.lead')}</p>
+      </div>
+      <div class="cards">
+        {cases.map((c) => {
+          const { text } = localizedCase(c, lang);
+          return (
+            <article class="card featured">
+              <h3><a href={casePath(lang, c.slug)}>{text.title}</a></h3>
+              <p>{text.summary}</p>
+              <ul class="chips" aria-label={t(lang, 'cases.tools')}>{c.tools.slice(0, 4).map((x) => <li>{x}</li>)}</ul>
+            </article>
+          );
+        })}
+      </div>
+      <p class="muted read">{t(lang, 'cases.privacy')}</p>
+    </section>
+
+    <section id="projects" aria-labelledby="h-projects">
+      <div class="read stack">
+        <h2 id="h-projects">{t(lang, 'projects.title')}</h2>
+        <p class="muted">{t(lang, 'projects.lead')}</p>
+      </div>
+      <h3>{t(lang, 'projects.featured')}</h3>
+      <div class="cards">{featured.map((p) => <ProjectCard project={p} lang={lang} />)}</div>
+      <h3>{t(lang, 'projects.others')}</h3>
+      <div class="cards">{others.map((p) => <ProjectCard project={p} lang={lang} />)}</div>
+    </section>
+
+    <section id="tech" aria-labelledby="h-tech">
+      <div class="read stack">
+        <h2 id="h-tech">{t(lang, 'tech.title')}</h2>
+        <p class="muted">{t(lang, 'tech.lead')}</p>
+      </div>
+      {groups.map((g) => (
+        <div class="techgroup">
+          <h3>{t(lang, `tech.groups.${g.lvl ?? 'unset'}`)}</h3>
+          <ul class="techlist">
+            {g.items.map((x) => <li>{x.name}{g.lvl === null && <Pending lang={lang} label={t(lang, 'tech.levelPending')} />}</li>)}
+          </ul>
+        </div>
+      ))}
+    </section>
+
+    <section id="education" aria-labelledby="h-edu">
+      <h2 id="h-edu">{t(lang, 'education.title')}</h2>
+      <ul class="timeline">
+        <li>
+          <strong>{t(lang, 'education.school')}</strong>
+          <span>{t(lang, 'education.course')}</span>
+          <span>{t(lang, 'education.period')} <Pending lang={lang} /></span>
+        </li>
+      </ul>
+      <h3>{t(lang, 'education.certs')}</h3>
+      <ul class="timeline">
+        <li><strong>{t(lang, 'education.certPython')} · Introdução à POO</strong><span>Fundação Bradesco</span></li>
+        <li><strong>Lógica de Programação</strong><span>Trybe</span></li>
+        <li><strong>{t(lang, 'education.certHtml')}</strong><span><Pending lang={lang} /></span></li>
+      </ul>
+    </section>
+
+    <section id="about" aria-labelledby="h-about">
+      <h2 id="h-about">{t(lang, 'about.title')}</h2>
+      <p class="read">
+        {profile.about[lang] ?? <Pending lang={lang} label={t(lang, 'about.text')} />}
+      </p>
+    </section>
+
+    <section id="contact" aria-labelledby="h-contact">
+      <div class="read stack">
+        <h2 id="h-contact">{t(lang, 'contact.title')}</h2>
+        <p class="muted">{t(lang, 'contact.lead')}</p>
+      </div>
+      <ul class="contact-list">
+        <li>{t(lang, 'contact.email')}: {profile.email ? <a href={`mailto:${profile.email}`}>{profile.email}</a> : <Pending lang={lang} />}</li>
+        <li>{t(lang, 'contact.linkedin')}: {profile.linkedin ? <a href={profile.linkedin}>{profile.linkedin}</a> : <Pending lang={lang} />}</li>
+        <li>{t(lang, 'contact.github')}: <a href={profile.github}>github.com/JulliaFs</a></li>
+      </ul>
+    </section>
+  </main>
+</Base>

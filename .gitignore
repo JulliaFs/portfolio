@@ -1,0 +1,10 @@
+node_modules
+dist
+.astro
+.env*
+*.pdf
+curriculo/
+BRIEFING.md
+PROPOSTA-V1.md
+proposta-v1.html
+.claude/
