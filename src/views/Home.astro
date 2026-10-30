@@ -16,6 +16,7 @@ const others = projects.filter((p) => !p.featured);
 const groups = levelOrder
   .map((lvl) => ({ lvl, items: tech.filter((x) => x.level === lvl) }))
   .filter((g) => g.items.length);
+const [aboutBefore, aboutAfter] = (profile.about[lang] ?? '').split(profile.employer.name);
 const cvFile = profile.cv[lang] ?? profile.cv.pt;
 const cv = cvFile && withBase(cvFile);
 ---
@@ -109,7 +110,7 @@ const cv = cvFile && withBase(cvFile);
     <section id="about" aria-labelledby="h-about">
       <h2 id="h-about">{t(lang, 'about.title')}</h2>
       <p class="read">
-        {profile.about[lang] ?? <Pending lang={lang} label={t(lang, 'about.text')} />}
+        {aboutBefore}<a href={profile.employer.url} rel="noopener">{profile.employer.name}</a>{aboutAfter}
       </p>
     </section>
 
