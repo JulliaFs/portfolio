@@ -2,7 +2,7 @@
 import Base from '../layouts/Base.astro';
 import Pending from '../components/Pending.astro';
 import { localizedCase, type Case } from '../data/cases';
-import { casePath, sectionPath, t, langs, type Lang } from '../i18n/utils';
+import { withBase, casePath, sectionPath, t, langs, type Lang } from '../i18n/utils';
 interface Props { lang: Lang; item: Case }
 const { lang, item } = Astro.props;
 const { text, translated } = localizedCase(item, lang);
@@ -17,6 +17,16 @@ const alt = Object.fromEntries(langs.map((l) => [l, casePath(l, item.slug)])) as
       <p class="muted" style="font-size: var(--fs-1)">{text.summary}</p>
       {!translated && <p class="notice" role="note">{t(lang, 'translationPending')}</p>}
     </div>
+
+    {item.video && (
+      <figure class="demo">
+        <video controls preload="metadata" playsinline poster={withBase(`${item.video}.jpg`)} aria-label={t(lang, 'cases.demoAlt')}>
+          <source src={withBase(`${item.video}.mp4`)} type="video/mp4" />
+          <a href={withBase(`${item.video}.mp4`)}>{t(lang, 'cases.demoDownload')}</a>
+        </video>
+        <figcaption>{t(lang, 'cases.demoCaption')}</figcaption>
+      </figure>
+    )}
 
     <div class="facts read">
       <section><h2>{t(lang, 'cases.problem')}</h2><p>{text.problem}</p></section>
@@ -34,7 +44,7 @@ const alt = Object.fromEntries(langs.map((l) => [l, casePath(l, item.slug)])) as
         <p>{text.result}</p>
         {import.meta.env.DEV && item.resultPending && <p><Pending lang={lang} label={`${t(lang, 'cases.resultPending')}: ${item.resultPending}`} /></p>}
       </section>
-      {import.meta.env.DEV && (
+      {import.meta.env.DEV && !item.video && (
         <section>
           <h2>{t(lang, 'cases.demo')}</h2>
           <p><Pending lang={lang} label={t(lang, 'cases.demoPending')} /></p>

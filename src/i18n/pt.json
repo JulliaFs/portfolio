@@ -107,7 +107,10 @@
     "resultPending": "número a preencher",
     "privacy": "Casos de trabalho: nomes de clientes e dados de pessoas foram omitidos.",
     "human": "Onde uma pessoa decide",
-    "wrong": "O que deu errado"
+    "wrong": "O que deu errado",
+    "demoAlt": "Demonstração do Verify em vídeo, com legendas",
+    "demoDownload": "Baixar o vídeo",
+    "demoCaption": "Demonstração de 2 minutos, sem som e com legendas. Médicos, clientes e documentos são inventados, e os pareceres da IA já estavam gravados."
   },
   "numbers": {
     "credentialing": "Cadastro de médicos: de um dia inteiro para até 2 h focadas por dia, sozinha, com 7 clientes",

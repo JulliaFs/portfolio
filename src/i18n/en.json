@@ -107,7 +107,10 @@
     "resultPending": "number to be filled in",
     "privacy": "Work cases: client names and personal data were left out.",
     "human": "Where a person decides",
-    "wrong": "What went wrong"
+    "wrong": "What went wrong",
+    "demoAlt": "Video demo of Verify, with captions in Portuguese",
+    "demoDownload": "Download the video",
+    "demoCaption": "Two-minute demo, silent, with captions in Portuguese. Physicians, clients and documents are made up, and the AI reviews were recorded in advance."
   },
   "numbers": {
     "credentialing": "Physician onboarding: from a full day to at most 2 focused hours a day, alone, across 7 clients",

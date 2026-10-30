@@ -22,6 +22,8 @@ export type CaseText = {
 export type Case = {
   slug: string;
   tools: string[];
+  /** vídeo de demonstração em public/video, sem a extensão */
+  video?: string;
   /** número que ela ainda precisa informar (ex.: tempo antes e depois) */
   resultPending?: string;
   text: { pt: CaseText } & Partial<Record<Lang, CaseText>>;
@@ -30,6 +32,7 @@ export type Case = {
 export const cases: Case[] = [
   {
     slug: 'verify',
+    video: '/video/demo-verify',
     tools: ['Python (Flask)', 'PostgreSQL', 'Cloudflare Access', 'APIs do Google Workspace', 'Claude Code'],
     text: {
       pt: {

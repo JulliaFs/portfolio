@@ -131,6 +131,9 @@ main:has(.contact-band) { padding-bottom: 0; }
 .contact-list { display: grid; gap: var(--space-1); list-style: none; padding: 0; margin: 0; font: 500 1rem var(--font-label); }
 
 /* páginas de caso e de projeto */
+.demo { margin: 0; max-width: 900px; display: grid; gap: var(--space-1); }
+.demo video { width: 100%; height: auto; display: block; background: var(--band-bg); box-shadow: 10px 10px 0 var(--rose); }
+.demo figcaption { margin-top: var(--space-1); font: 400 var(--fs-small)/1.45 var(--font-label); color: var(--muted); }
 .project-head { display: grid; gap: var(--space-2); }
 .project-head h1 { font-size: clamp(2.5rem, 6.5vw, 4.6rem); line-height: 1.02; }
 .project-head .muted { font-style: italic; font-size: var(--fs-2) !important; line-height: 1.3; }

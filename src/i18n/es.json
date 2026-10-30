@@ -107,7 +107,10 @@
     "resultPending": "número por completar",
     "privacy": "Casos de trabajo: se omitieron nombres de clientes y datos de personas.",
     "human": "Dónde decide una persona",
-    "wrong": "Qué salió mal"
+    "wrong": "Qué salió mal",
+    "demoAlt": "Demostración de Verify en video, con subtítulos en portugués",
+    "demoDownload": "Descargar el video",
+    "demoCaption": "Demostración de 2 minutos, sin sonido y con subtítulos en portugués. Médicos, clientes y documentos son inventados, y los dictámenes de la IA ya estaban grabados."
   },
   "numbers": {
     "credentialing": "Registro de médicos: de un día entero a un máximo de 2 h enfocadas al día, sola, con 7 clientes",
