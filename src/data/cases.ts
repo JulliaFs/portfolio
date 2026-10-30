@@ -31,7 +31,6 @@ export const cases: Case[] = [
   {
     slug: 'verify',
     tools: ['Python (Flask)', 'PostgreSQL', 'Cloudflare Access', 'APIs do Google Workspace', 'Claude Code'],
-    resultPending: 'tempo médio por cadastro, antes e depois',
     text: {
       pt: {
         title: 'Verify: o credenciamento médico saiu da planilha',
@@ -41,7 +40,7 @@ export const cases: Case[] = [
         ai: 'Escrevi a especificação com o Claude atuando como product owner comigo e construí o código com o Claude Code. Usei IA também para mapear as regras escondidas nos scripts antigos antes de migrá-las.',
         human: 'A IA lê documentos e sugere, mas só uma pessoa aprova a etapa inicial, cada documento e o envio ao hospital. Se a IA pular ou inventar um item, ele vai para revisão: ela nunca aprova sozinha. Ela também recebe os dados sem CPF nem nome de pessoa física.',
         wrong: 'No sistema antigo, o código lia campos no lugar errado e a IA decidiu por meses sem esses dados, sem nenhum erro aparente. No Verify, a tela mostra quantos campos vieram preenchidos, e o item sem dados vai para revisão humana. O alerta da IA ainda é cauteloso demais: a maioria é aceita por uma pessoa mesmo assim.',
-        result: 'As regras ficaram num lugar só. Os 5 gestores acompanham os credenciamentos pelo painel de gestão, sem pedir status por mensagem. Mais de 270 testes automatizados, com dados fictícios, rodam antes de cada publicação.',
+        result: 'As regras ficaram num lugar só. Os 5 gestores acompanham os credenciamentos pelo painel de gestão, sem pedir status por mensagem. Antes, cadastrar médicos tomava um dia inteiro. Hoje, sozinha, acompanho 7 clientes em até 2 horas focadas por dia, e um médico com tudo em ordem leva cerca de 2 minutos para aprovar e enviar. A base migrou cerca de 1.000 médicos, o fluxo novo já tem dezenas de casos, e no dia a dia acompanho mais de 30 médicos em andamento. Mais de 270 testes automatizados, com dados fictícios, rodam antes de cada publicação.',
       },
     },
   },

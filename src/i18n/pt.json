@@ -110,10 +110,10 @@
     "wrong": "O que deu errado"
   },
   "numbers": {
-    "credentialing": "Credenciamento médico: de um dia inteiro para minutos (estimativa)",
-    "monthly": "cadastros por mês, com picos acima de 100",
+    "credentialing": "Cadastro de médicos: de um dia inteiro para até 2 h focadas por dia, sozinha, com 7 clientes",
     "shifts": "plantões e 2.556 horas lançados no primeiro mês",
     "doctors": "médicos casados na primeira importação",
-    "dayToMin": "1 dia → min"
+    "dayToMin": "1 dia → 2 h",
+    "approve": "para aprovar e enviar um médico com tudo em ordem"
   }
 }

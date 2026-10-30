@@ -110,10 +110,10 @@
     "wrong": "Qué salió mal"
   },
   "numbers": {
-    "credentialing": "Acreditación médica: de un día entero a minutos (estimación)",
-    "monthly": "registros al mes, con picos de más de 100",
+    "credentialing": "Registro de médicos: de un día entero a un máximo de 2 h enfocadas al día, sola, con 7 clientes",
     "shifts": "guardias y 2.556 horas cargadas en el primer mes",
     "doctors": "médicos cruzados en la primera importación",
-    "dayToMin": "1 día → min"
+    "dayToMin": "1 día → 2 h",
+    "approve": "para aprobar y enviar un médico con todo en orden"
   }
 }

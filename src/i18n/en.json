@@ -110,10 +110,10 @@
     "wrong": "What went wrong"
   },
   "numbers": {
-    "credentialing": "Physician credentialing: from a full day to minutes (estimate)",
-    "monthly": "registrations a month, with peaks above 100",
+    "credentialing": "Physician onboarding: from a full day to at most 2 focused hours a day, alone, across 7 clients",
     "shifts": "shifts and 2,556 hours entered in the first month",
     "doctors": "physicians matched on the first import",
-    "dayToMin": "1 day → min"
+    "dayToMin": "1 day → 2 h",
+    "approve": "to approve and send a physician when everything is in order"
   }
 }
