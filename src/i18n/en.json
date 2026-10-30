@@ -106,5 +106,12 @@
     "demoPending": "demo video to be filled in",
     "resultPending": "number to be filled in",
     "privacy": "Work cases: client names and personal data were left out."
+  },
+  "numbers": {
+    "credentialing": "Physician credentialing: from a full day to minutes",
+    "monthly": "registrations a month, with peaks above 100",
+    "shifts": "shifts and 2,556 hours entered in the first month",
+    "doctors": "physicians matched on the first import",
+    "dayToMin": "1 day → min"
   }
 }

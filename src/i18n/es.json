@@ -106,5 +106,12 @@
     "demoPending": "video de demo por completar",
     "resultPending": "número por completar",
     "privacy": "Casos de trabajo: se omitieron nombres de clientes y datos de personas."
+  },
+  "numbers": {
+    "credentialing": "Acreditación médica: de un día entero a minutos",
+    "monthly": "registros al mes, con picos de más de 100",
+    "shifts": "guardias y 2.556 horas cargadas en el primer mes",
+    "doctors": "médicos cruzados en la primera importación",
+    "dayToMin": "1 día → min"
   }
 }

@@ -106,5 +106,12 @@
     "demoPending": "vídeo de demo a preencher",
     "resultPending": "número a preencher",
     "privacy": "Casos de trabalho: nomes de clientes e dados de pessoas foram omitidos."
+  },
+  "numbers": {
+    "credentialing": "Credenciamento médico: de um dia inteiro para minutos",
+    "monthly": "cadastros por mês, com picos acima de 100",
+    "shifts": "plantões e 2.556 horas lançados no primeiro mês",
+    "doctors": "médicos casados na primeira importação",
+    "dayToMin": "1 dia → min"
   }
 }

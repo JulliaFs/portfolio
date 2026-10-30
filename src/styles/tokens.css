@@ -1,34 +1,37 @@
 /*
   TOKENS DE DESIGN: a identidade visual inteira mora aqui.
-  Para trocar de direção visual (editorial, terminal, caderno), edite só este arquivo
-  (e, se quiser, as fontes em Base.astro). Os componentes só usam var(--...).
-  Tema atual: neutro, azul-tinta, pronto para ser substituído.
+  Tema: revista, vinho e rosa. Os componentes só usam var(--...).
 */
 :root {
   /* cores: superfície e texto */
-  --bg: #f6f7fa;
-  --surface: #ffffff;
-  --fg: #181c27;
-  --muted: #535c70;      /* 6.6:1 sobre --bg */
-  --line: #d9dde7;
+  --bg: #fbf1ec;
+  --surface: #f6e4dc;
+  --fg: #3b0f1e;
+  --muted: #6e4a55;      /* 6:1 sobre --bg */
+  --line: #e3c9c3;
   /* cores: acento */
-  --accent: #2d3fc4;     /* 7.5:1 sobre --bg */
-  --accent-fg: #ffffff;
-  --accent-soft: #e5e8fb;
-  /* cores: marcador "a preencher" */
+  --accent: #8c1c3f;     /* 8:1 sobre --bg */
+  --accent-fg: #fbf1ec;
+  --accent-soft: #f7d6dc;
+  --rose: #f2a6b8;       /* decorativo e números grandes */
+  /* faixas de cor (números e contato) */
+  --band-bg: #6f1430;
+  --band-fg: #fbf1ec;
+  --band-accent: #f2a6b8; /* 5.5:1 sobre --band-bg */
+  /* cores: marcador "a preencher" (só em npm run dev) */
   --todo-bg: #fff1d6;
   --todo-fg: #7a4700;
   --todo-line: #e6b768;
 
   /* tipografia */
-  --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
-  --font-body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
-  --font-mono: "IBM Plex Mono", ui-monospace, Consolas, monospace;
-  --fs-0: 1rem;
-  --fs-1: 1.125rem;
-  --fs-2: 1.4rem;
-  --fs-3: clamp(1.7rem, 3vw, 2.1rem);
-  --fs-4: clamp(2.3rem, 6vw, 3.6rem);
+  --font-display: "Gloock", Georgia, "Times New Roman", serif;
+  --font-body: "Newsreader", Georgia, "Times New Roman", serif;
+  --font-label: "Schibsted Grotesk", "Segoe UI", system-ui, sans-serif;
+  --fs-0: 1.125rem;
+  --fs-1: 1.3rem;
+  --fs-2: clamp(1.45rem, 2.4vw, 1.8rem);
+  --fs-3: clamp(2.1rem, 4.6vw, 3.2rem);
+  --fs-4: clamp(4rem, 13vw, 9rem);
   --fs-small: 0.875rem;
 
   /* espaçamento, forma e largura */
@@ -37,26 +40,28 @@
   --space-3: 1.5rem;
   --space-4: 2.5rem;
   --space-5: 4rem;
-  --space-6: 6rem;
-  --radius: 12px;
-  --radius-sm: 8px;
-  --measure: 68ch;
-  --wide: 1040px;
-  --gutter: 16px;
+  --space-6: 6.5rem;
+  --radius: 0;
+  --radius-sm: 0;
+  --measure: 66ch;
+  --wide: 1120px;
+  --gutter: clamp(16px, 4vw, 40px);
   --focus: 3px solid var(--accent);
 }
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg: #11131a; --surface: #191c25; --fg: #e8eaf1; --muted: #a2a9ba; --line: #2b3040;
-    --accent: #9aa6ff; --accent-fg: #11131a; --accent-soft: #232a52;
+    --bg: #1f0a12; --surface: #2c111b; --fg: #f8e8e1; --muted: #c9a8ad; --line: #4a2531;
+    --accent: #f2a6b8; --accent-fg: #2a0d17; --accent-soft: #4a1a2b; --rose: #8c1c3f;
+    --band-bg: #4f0f24; --band-fg: #f8e8e1; --band-accent: #f2a6b8;
     --todo-bg: #3a2c12; --todo-fg: #f2b860; --todo-line: #6b5020;
     color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
-  --bg: #11131a; --surface: #191c25; --fg: #e8eaf1; --muted: #a2a9ba; --line: #2b3040;
-  --accent: #9aa6ff; --accent-fg: #11131a; --accent-soft: #232a52;
+  --bg: #1f0a12; --surface: #2c111b; --fg: #f8e8e1; --muted: #c9a8ad; --line: #4a2531;
+  --accent: #f2a6b8; --accent-fg: #2a0d17; --accent-soft: #4a1a2b; --rose: #8c1c3f;
+  --band-bg: #4f0f24; --band-fg: #f8e8e1; --band-accent: #f2a6b8;
   --todo-bg: #3a2c12; --todo-fg: #f2b860; --todo-line: #6b5020;
   color-scheme: dark;
 }

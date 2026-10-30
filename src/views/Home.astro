@@ -23,10 +23,10 @@ const cv = cvFile && withBase(cvFile);
 <Base lang={lang} title={t(lang, 'meta.title')} description={t(lang, 'meta.description')} alt={alt}>
   <main id="conteudo" class="wrap">
     <section class="hero" aria-labelledby="h-hero">
-      <div class="stack">
+      <div class="hero-copy">
         <p class="eyebrow">{t(lang, 'hero.eyebrow')}</p>
-        <h1 id="h-hero">{t(lang, 'hero.name')}. {t(lang, 'hero.role')}.</h1>
-        <p class="muted read" style="font-size: var(--fs-1)">{profile.tagline[lang] ?? t(lang, 'hero.intro')}</p>
+        <h1 id="h-hero"><span class="h-name">{t(lang, 'hero.name')}.</span> <span class="h-role">{t(lang, 'hero.role')}.</span></h1>
+        <p class="hero-intro">{profile.tagline[lang] ?? t(lang, 'hero.intro')}</p>
         <div class="actions">
           <a class="btn" href="#projects">{t(lang, 'hero.ctaProjects')}</a>
           {cv
@@ -41,54 +41,70 @@ const cv = cvFile && withBase(cvFile);
       </div>
     </section>
 
+    <div class="numbers">
+      <dl class="wrap">
+        <div><dt>{t(lang, 'numbers.credentialing')}</dt><dd>{t(lang, 'numbers.dayToMin')}</dd></div>
+        <div><dt>{t(lang, 'numbers.monthly')}</dt><dd>50–70</dd></div>
+        <div><dt>{t(lang, 'numbers.shifts')}</dt><dd>243</dd></div>
+        <div><dt>{t(lang, 'numbers.doctors')}</dt><dd>204</dd></div>
+      </dl>
+    </div>
+
     <section id="cases" aria-labelledby="h-cases">
-      <div class="read stack">
+      <div class="sec-head">
         <h2 id="h-cases">{t(lang, 'cases.title')}</h2>
         <p class="muted">{t(lang, 'cases.lead')}</p>
       </div>
-      <div class="cards">
-        {cases.map((c) => {
+      <ol class="stories">
+        {cases.map((c, i) => {
           const { text } = localizedCase(c, lang);
           return (
-            <article class="card featured">
-              <h3><a href={casePath(lang, c.slug)}>{text.title}</a></h3>
-              <p>{text.summary}</p>
-              <ul class="chips" aria-label={t(lang, 'cases.tools')}>{c.tools.slice(0, 4).map((x) => <li>{x}</li>)}</ul>
-            </article>
+            <li class="story">
+              <span class="story-n" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
+              <div class="story-body">
+                <h3><a href={casePath(lang, c.slug)}>{text.title}</a></h3>
+                <p>{text.summary}</p>
+                <ul class="chips" aria-label={t(lang, 'cases.tools')}>{c.tools.slice(0, 4).map((x) => <li>{x}</li>)}</ul>
+              </div>
+            </li>
           );
         })}
-      </div>
+      </ol>
       <p class="muted read">{t(lang, 'cases.privacy')}</p>
     </section>
 
     <section id="projects" aria-labelledby="h-projects">
-      <div class="read stack">
+      <div class="sec-head">
         <h2 id="h-projects">{t(lang, 'projects.title')}</h2>
         <p class="muted">{t(lang, 'projects.lead')}</p>
       </div>
-      <h3>{t(lang, 'projects.featured')}</h3>
+      <h3 class="subhead">{t(lang, 'projects.featured')}</h3>
       <div class="cards">{featured.map((p) => <ProjectCard project={p} lang={lang} />)}</div>
-      <h3>{t(lang, 'projects.others')}</h3>
+      <h3 class="subhead">{t(lang, 'projects.others')}</h3>
       <div class="cards">{others.map((p) => <ProjectCard project={p} lang={lang} />)}</div>
     </section>
 
     <section id="tech" aria-labelledby="h-tech">
-      <div class="read stack">
+      <div class="sec-head">
         <h2 id="h-tech">{t(lang, 'tech.title')}</h2>
         <p class="muted">{t(lang, 'tech.lead')}</p>
       </div>
-      {groups.map((g) => (
-        <div class="techgroup">
-          <h3>{t(lang, `tech.groups.${g.lvl ?? 'unset'}`)}</h3>
-          <ul class="techlist">
-            {g.items.map((x) => <li>{x.name}{g.lvl === null && <Pending lang={lang} label={t(lang, 'tech.levelPending')} />}</li>)}
-          </ul>
-        </div>
-      ))}
+      <div class="techcols">
+        {groups.map((g) => (
+          <div class="techgroup">
+            <h3>{t(lang, `tech.groups.${g.lvl ?? 'unset'}`)}</h3>
+            <ul class="techlist">
+              {g.items.map((x) => <li>{x.name}{g.lvl === null && <Pending lang={lang} label={t(lang, 'tech.levelPending')} />}</li>)}
+            </ul>
+          </div>
+        ))}
+      </div>
     </section>
 
     <section id="education" aria-labelledby="h-edu">
-      <h2 id="h-edu">{t(lang, 'education.title')}</h2>
+      <div class="sec-head"><h2 id="h-edu">{t(lang, 'education.title')}</h2></div>
+      <div class="edu-grid">
+      <div>
       <ul class="timeline">
         <li>
           <strong>{t(lang, 'education.school')}</strong>
@@ -96,26 +112,30 @@ const cv = cvFile && withBase(cvFile);
           <span>{t(lang, 'education.period')} {profile.graduation[lang]}</span>
         </li>
       </ul>
-      <h3>{t(lang, 'education.subjects')}</h3>
-      <ul class="timeline">
-        {subjects.map((s) => <li><strong>{s.name}</strong><span>{s.topics[lang]}</span></li>)}
-      </ul>
-      <h3>{t(lang, 'education.certs')}</h3>
+      <h3 class="subhead">{t(lang, 'education.certs')}</h3>
       <ul class="timeline">
         <li><strong>{t(lang, 'education.certPython')} · Introdução à POO</strong><span>Fundação Bradesco</span></li>
         <li><strong>Lógica de Programação</strong><span>Trybe</span></li>
       </ul>
+      </div>
+      <div>
+      <h3 class="subhead" style="margin-top: 0">{t(lang, 'education.subjects')}</h3>
+      <ul class="timeline">
+        {subjects.map((s) => <li><strong>{s.name}</strong><span>{s.topics[lang]}</span></li>)}
+      </ul>
+      </div>
+      </div>
     </section>
 
     <section id="about" aria-labelledby="h-about">
-      <h2 id="h-about">{t(lang, 'about.title')}</h2>
-      <p class="read">
+      <div class="sec-head"><h2 id="h-about">{t(lang, 'about.title')}</h2></div>
+      <p class="read about-text">
         {aboutBefore}<a href={profile.employer.url} rel="noopener">{profile.employer.name}</a>{aboutAfter}
       </p>
     </section>
 
-    <section id="contact" aria-labelledby="h-contact">
-      <div class="read stack">
+    <section id="contact" class="contact-band" aria-labelledby="h-contact">
+      <div class="read">
         <h2 id="h-contact">{t(lang, 'contact.title')}</h2>
         <p class="muted">{t(lang, 'contact.lead')}</p>
       </div>
