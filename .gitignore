@@ -3,6 +3,7 @@ dist
 .astro
 .env*
 *.pdf
+!public/curriculo-pt.pdf
 curriculo/
 BRIEFING.md
 PROPOSTA-V1.md

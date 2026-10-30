@@ -6,6 +6,7 @@ import { projects } from '../data/projects';
 import { cases, localizedCase } from '../data/cases';
 import { tech, levelOrder } from '../data/tech';
 import { profile } from '../data/profile';
+import { subjects } from '../data/education';
 import { homePath, casePath, withBase, t, langs, type Lang } from '../i18n/utils';
 interface Props { lang: Lang }
 const { lang } = Astro.props;
@@ -91,14 +92,17 @@ const cv = cvFile && withBase(cvFile);
         <li>
           <strong>{t(lang, 'education.school')}</strong>
           <span>{t(lang, 'education.course')}</span>
-          <span>{t(lang, 'education.period')} <Pending lang={lang} /></span>
+          <span>{t(lang, 'education.period')} {profile.graduation[lang]}</span>
         </li>
+      </ul>
+      <h3>{t(lang, 'education.subjects')}</h3>
+      <ul class="timeline">
+        {subjects.map((s) => <li><strong>{s.name}</strong><span>{s.topics[lang]}</span></li>)}
       </ul>
       <h3>{t(lang, 'education.certs')}</h3>
       <ul class="timeline">
         <li><strong>{t(lang, 'education.certPython')} · Introdução à POO</strong><span>Fundação Bradesco</span></li>
         <li><strong>Lógica de Programação</strong><span>Trybe</span></li>
-        <li><strong>{t(lang, 'education.certHtml')}</strong><span><Pending lang={lang} /></span></li>
       </ul>
     </section>
 

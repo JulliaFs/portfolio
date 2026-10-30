@@ -30,12 +30,14 @@ const alt = Object.fromEntries(langs.map((l) => [l, casePath(l, item.slug)])) as
       <section>
         <h2>{t(lang, 'cases.result')}</h2>
         <p>{text.result}</p>
-        {item.resultPending && <p><Pending lang={lang} label={`${t(lang, 'cases.resultPending')}: ${item.resultPending}`} /></p>}
+        {import.meta.env.DEV && item.resultPending && <p><Pending lang={lang} label={`${t(lang, 'cases.resultPending')}: ${item.resultPending}`} /></p>}
       </section>
-      <section>
-        <h2>{t(lang, 'cases.demo')}</h2>
-        <p><Pending lang={lang} label={t(lang, 'cases.demoPending')} /></p>
-      </section>
+      {import.meta.env.DEV && (
+        <section>
+          <h2>{t(lang, 'cases.demo')}</h2>
+          <p><Pending lang={lang} label={t(lang, 'cases.demoPending')} /></p>
+        </section>
+      )}
       <p class="muted">{t(lang, 'cases.privacy')}</p>
     </div>
   </main>
