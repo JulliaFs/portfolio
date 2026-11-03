@@ -46,7 +46,7 @@ export const cases: Case[] = [
         built: 'O Verify, um app interno que recebe o médico e controla cada etapa do credenciamento. Tem painel administrativo, regras por cliente editáveis na tela e login Google protegido. Conversa com o portal do médico, com a base de médicos e com o painel dos gestores, e cada sistema escreve só nos próprios dados.',
         ai: 'Escrevi a especificação com o Claude atuando como product owner comigo e construí o código com o Claude Code. Usei IA também para mapear as regras escondidas nos scripts antigos antes de migrá-las.',
         human: 'A IA lê documentos e sugere, mas só uma pessoa aprova a etapa inicial, cada documento e o envio ao hospital. Se a IA pular ou inventar um item, ele vai para revisão: ela nunca aprova sozinha. Ela também recebe os dados sem CPF nem nome de pessoa física.',
-        wrong: 'No sistema antigo, o código lia campos no lugar errado e a IA decidiu por meses sem esses dados, sem nenhum erro aparente. No Verify, a tela mostra quantos campos vieram preenchidos, e o item sem dados vai para revisão humana. O alerta da IA ainda é cauteloso demais: a maioria é aceita por uma pessoa mesmo assim.',
+        wrong: 'No sistema antigo, o código lia campos no lugar errado e a IA decidiu por meses sem esses dados, sem nenhum erro aparente. No Verify, a tela mostra quantos campos vieram preenchidos, e o item sem dados vai para revisão humana. O alerta da IA ainda é cauteloso demais: a maioria é aceita por uma pessoa mesmo assim. Para entender onde ela erra, montei um teste com 30 documentos inventados (o próximo caso).',
         result: 'As regras ficaram num lugar só. Os 5 gestores acompanham os credenciamentos pelo painel de gestão, sem pedir status por mensagem. Antes, cadastrar médicos tomava um dia inteiro. Hoje, sozinha, acompanho 7 clientes em até 2 horas focadas por dia, e um médico com tudo em ordem leva cerca de 2 minutos para aprovar e enviar. A base migrou cerca de 1.000 médicos, o fluxo novo já tem dezenas de casos, e no dia a dia acompanho mais de 30 médicos em andamento. Mais de 270 testes automatizados, com dados fictícios, rodam antes de cada publicação.',
       },
     },
@@ -89,7 +89,7 @@ export const cases: Case[] = [
     resultPending: 'tempo do processo manual',
     text: {
       pt: {
-        title: 'Plantões lançados sozinhos num sistema sem API',
+        title: 'Plantões lançados automaticamente num sistema sem API',
         summary: 'Uma automação que digita os plantões do mês numa tela remota e confere o resultado dia a dia.',
         problem: 'Todo mês, centenas de plantões médicos precisam ser digitados no sistema de um hospital parceiro, acessado por TeamViewer e sem API. Qualquer tecla na tela errada gravava um plantão incompleto.',
         built: 'Uma automação em Python que lê a exportação do sistema de escalas e digita os plantões na tela remota. Antes de cada gravação, confirma por imagem que a janela certa está aberta. No fim, confere dia a dia o relatório do sistema contra a origem.',
@@ -105,7 +105,7 @@ export const cases: Case[] = [
     tools: ['Python (Flask)', 'Importador de CSV/colagem', 'Google Sheets API', 'Claude Code'],
     text: {
       pt: {
-        title: 'Painel de credenciamento quando a fonte de dados sumiu',
+        title: 'Acompanhamento de médicos refeito quando a fonte de dados sumiu',
         summary: 'Um painel que reconstrói o acompanhamento de um cliente depois que o acesso à planilha-mãe foi cortado.',
         problem: 'Um cliente grande (uma rede de clínicas) cortou o acesso à planilha-mãe de onde vinham os dados. O script que acompanhava a jornada de cada médico parou no primeiro passo, e o follow-up da equipe congelou.',
         built: 'Um painel novo que importa as tabelas que o cliente ainda exporta (colar na tela ou subir o arquivo). Ele reconhece qual tabela é, descarta o que é de outra empresa, apaga CPF e CRM dos campos livres e junta os registros pelo ID. Depois confere a planilha interna contra a base do cliente e aponta divergências, como status encerrado de um lado e aberto do outro.',
@@ -123,7 +123,7 @@ export const cases: Case[] = [
       pt: {
         title: 'Uma equipe de agentes Claude tocando vários sistemas ao mesmo tempo',
         summary: 'Um orquestrador transforma pedidos em linguagem natural em instruções para o agente de cada sistema.',
-        problem: 'Eu cuidava sozinha de vários sistemas ao mesmo tempo: o app de credenciamento, o portal do médico, o painel dos gestores, a base de médicos, planilhas e automações. Reexplicar o contexto toda vez a uma IA tomava mais tempo que o trabalho em si.',
+        problem: 'Eu trabalhava em vários sistemas ao mesmo tempo: o app de credenciamento, o portal do médico, o painel dos gestores, a base de médicos, planilhas e automações. Reexplicar o contexto toda vez a uma IA tomava mais tempo que o trabalho em si.',
         built: 'Um sistema de agentes Claude Code com um dono por assunto. Hoje são mais de 20 conversas registradas. Um agente orquestrador recebe meus pedidos em linguagem natural, transforma cada um em instrução concreta (o que mudar, onde, critério de pronto) e envia ao agente certo. Outro agente lê meu ClickUp e avisa os demais sobre o que é deles.',
         ai: 'Os agentes são a própria solução: cada um é uma sessão do Claude Code especializada em um sistema.',
         memory: 'Escrevi uma ferramenta em Python (só biblioteca padrão) que gera um índice das conversas e um handoff de cada uma: decisões, entregáveis e pendências. Um agente novo carrega o contexto com um comando. A ferramenta mascara CPF, CRM e senhas antes de guardar qualquer coisa, por causa da LGPD.',

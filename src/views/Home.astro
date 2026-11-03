@@ -19,6 +19,12 @@ const groups = levelOrder
 const [aboutBefore, aboutAfter] = (profile.about[lang] ?? '').split(profile.employer.name);
 const cvFile = profile.cv[lang] ?? profile.cv.pt;
 const cv = cvFile && withBase(cvFile);
+const numbers = [
+  { value: t(lang, 'numbers.dayToMin'), tag: 'verify', label: 'verifyTime', slug: 'verify' },
+  { value: '2 min', tag: 'verify', label: 'verifyApprove', slug: 'verify' },
+  { value: '3 → 1', tag: 'eval', label: 'evalErrors', slug: 'avaliacao-ia-documentos' },
+  { value: lang === 'en' ? '2,556 h' : '2.556 h', tag: 'shifts', label: 'shiftHours', slug: 'plantoes' },
+];
 ---
 <Base lang={lang} title={t(lang, 'meta.title')} description={t(lang, 'meta.description')} alt={alt}>
   <main id="conteudo" class="wrap">
@@ -28,7 +34,7 @@ const cv = cvFile && withBase(cvFile);
         <h1 id="h-hero"><span class="h-name">{t(lang, 'hero.name')}.</span> <span class="h-role">{t(lang, 'hero.role')}.</span></h1>
         <p class="hero-intro">{profile.tagline[lang] ?? t(lang, 'hero.intro')}</p>
         <div class="actions">
-          <a class="btn" href="#projects">{t(lang, 'hero.ctaProjects')}</a>
+          <a class="btn" href="#cases">{t(lang, 'hero.ctaProjects')}</a>
           {cv
             ? <a class="btn ghost" href={cv}>{t(lang, 'hero.ctaCv')}</a>
             : <span class="todo">{t(lang, 'hero.ctaCv')}: {t(lang, 'pending')}</span>}
@@ -43,10 +49,12 @@ const cv = cvFile && withBase(cvFile);
 
     <div class="numbers">
       <dl class="wrap">
-        <div><dt>{t(lang, 'numbers.credentialing')}</dt><dd>{t(lang, 'numbers.dayToMin')}</dd></div>
-        <div><dt>{t(lang, 'numbers.approve')}</dt><dd>2 min</dd></div>
-        <div><dt>{t(lang, 'numbers.shifts')}</dt><dd>243</dd></div>
-        <div><dt>{t(lang, 'numbers.doctors')}</dt><dd>204</dd></div>
+        {numbers.map((n) => (
+          <div>
+            <dt><a class="num-tag" href={casePath(lang, n.slug)}>{t(lang, `numbers.${n.tag}`)}</a> {t(lang, `numbers.${n.label}`)}</dt>
+            <dd>{n.value}</dd>
+          </div>
+        ))}
       </dl>
     </div>
 

@@ -172,7 +172,7 @@ export const projects: Project[] = [
     links: [],
     screens: [],
     screensPending: true,
-    text: { pt: { name: 'Documentos lidos por IA', tagline: 'Gera as fichas e os termos de cada hospital: o Gemini lê os documentos do médico e preenche o que falta.', built: 'O Gemini lê os documentos enviados pelo médico (RG, diploma, CRM) e preenche os campos que faltam, cerca de 25 segundos por médico. Formulários de quadradinho são escritos direto no PDF.', decisions: [] } },
+    text: { pt: { name: 'Fichas de hospital preenchidas por IA', tagline: 'Gera as fichas e os termos de cada hospital: o Gemini lê os documentos do médico e preenche o que falta.', built: 'O Gemini lê os documentos enviados pelo médico (RG, diploma, CRM) e preenche os campos que faltam, cerca de 25 segundos por médico. Formulários de quadradinho são escritos direto no PDF.', decisions: [] } },
   },
   {
     slug: 'aba-de-credenciamento',
@@ -194,7 +194,7 @@ export const projects: Project[] = [
     links: [{ label: 'diagnostico.sejamirae.com', href: 'https://diagnostico.sejamirae.com' }],
     screens: [],
     screensPending: true,
-    text: { pt: { name: 'Diagnóstico de Gestão da Equipe Médica', tagline: 'Autoavaliação executiva em 4 pilares, com painel que o time comercial configura sozinho.', built: 'Construído sozinha, do design ao deploy.', result: 'Em teste interno.', decisions: [] } },
+    text: { pt: { name: 'Diagnóstico de Gestão da Equipe Médica', tagline: 'Autoavaliação executiva em 4 pilares, com painel que o time comercial configura sozinho.', built: 'Do design ao deploy, sem outra pessoa no time, com o código escrito pelo Claude Code sob a minha direção.', result: 'Em teste interno.', decisions: [] } },
   },
   {
     slug: 'eclipse',

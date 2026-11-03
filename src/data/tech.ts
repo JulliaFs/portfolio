@@ -32,7 +32,6 @@ export const tech: Tech[] = [
   { name: 'Acessibilidade web (WCAG, ARIA)', level: 'projects' },
   { name: 'Modelagem (UML, casos de uso, ER)', level: 'projects' },
   { name: "Ren'Py", level: 'projects' },
-  { name: 'Desenvolvimento com IA (Claude)', level: 'daily' },
   { name: 'Claude Code (agentes, subagentes, MCP)', level: 'daily' },
   { name: 'Gemini / Vertex AI', level: 'daily' },
 ];

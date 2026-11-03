@@ -25,7 +25,7 @@
     "name": "Jullia",
     "role": "ADS student and AI Builder",
     "intro": "Automation, agents and applied AI: I start from the operator’s problem and ship in days.",
-    "ctaProjects": "See projects",
+    "ctaProjects": "See my work",
     "ctaCv": "Download résumé",
     "photoAlt": "Photo of Jullia",
     "photoPending": "photo to be filled in"
@@ -45,12 +45,12 @@
     "links": "Links",
     "screens": "Screens",
     "screenPending": "screenshot to be filled in",
-    "noRepo": "The repository is private: only screenshots and a description are shown here.",
+    "noRepo": "The code is in a private repository.",
     "status": {
       "live": "In real use",
       "beta": "Closed beta",
-      "school": "FIAP",
-      "study": "Accessibility",
+      "school": "FIAP project",
+      "study": "Study project",
       "wip": "In development",
       "work": "Work project"
     }
@@ -69,7 +69,7 @@
   "education": {
     "title": "Education and certificates",
     "school": "FIAP",
-    "course": "Systems Analysis and Development (TDS course)",
+    "course": "Systems Analysis and Development",
     "period": "2026 – present (1st year) · expected graduation:",
     "certs": "Certificates",
     "subjects": "First-year subjects",
@@ -114,10 +114,13 @@
     "examples": "Examples"
   },
   "numbers": {
-    "credentialing": "Physician onboarding: from a full day to at most 2 focused hours a day, alone, across 7 clients",
-    "shifts": "shifts and 2,556 hours entered in the first month",
-    "doctors": "physicians matched on the first import",
     "dayToMin": "1 day → 2 h",
-    "approve": "to approve and send a physician when everything is in order"
+    "verify": "Verify",
+    "eval": "Document AI",
+    "shifts": "Shifts",
+    "verifyTime": "physician onboarding, from a full day to up to 2 focused hours a day, on my own, across 7 clients",
+    "verifyApprove": "to approve and send a physician whose documents are all in order",
+    "evalErrors": "problem documents that passed as \"ok\", after tuning the prompt (30-document test)",
+    "shiftHours": "of shifts entered in the first month without typing, checked day by day"
   }
 }

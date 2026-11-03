@@ -25,7 +25,7 @@
     "name": "Jullia",
     "role": "Estudiante de ADS y AI Builder",
     "intro": "Automatización, agentes e IA aplicada: empiezo por el problema de quien opera y lo llevo a producción en días.",
-    "ctaProjects": "Ver proyectos",
+    "ctaProjects": "Ver el trabajo",
     "ctaCv": "Descargar currículum",
     "photoAlt": "Foto de Jullia",
     "photoPending": "foto por completar"
@@ -45,12 +45,12 @@
     "links": "Enlaces",
     "screens": "Pantallas",
     "screenPending": "captura por completar",
-    "noRepo": "El repositorio es privado: aquí solo se muestran capturas y una descripción.",
+    "noRepo": "El código está en un repositorio privado.",
     "status": {
       "live": "En uso real",
       "beta": "Beta cerrada",
-      "school": "FIAP",
-      "study": "Accesibilidad",
+      "school": "Proyecto de FIAP",
+      "study": "Proyecto de estudio",
       "wip": "En desarrollo",
       "work": "Proyecto de trabajo"
     }
@@ -69,7 +69,7 @@
   "education": {
     "title": "Formación y certificados",
     "school": "FIAP",
-    "course": "Análisis y Desarrollo de Sistemas (curso TDS)",
+    "course": "Análisis y Desarrollo de Sistemas",
     "period": "2026 – actual (1.º año) · conclusión prevista:",
     "certs": "Certificados",
     "subjects": "Asignaturas de 1.º año",
@@ -114,10 +114,13 @@
     "examples": "Ejemplos"
   },
   "numbers": {
-    "credentialing": "Registro de médicos: de un día entero a un máximo de 2 h enfocadas al día, sola, con 7 clientes",
-    "shifts": "guardias y 2.556 horas cargadas en el primer mes",
-    "doctors": "médicos cruzados en la primera importación",
     "dayToMin": "1 día → 2 h",
-    "approve": "para aprobar y enviar un médico con todo en orden"
+    "verify": "Verify",
+    "eval": "IA de documentos",
+    "shifts": "Guardias",
+    "verifyTime": "alta de médicos, de un día entero a hasta 2 h de foco por día, sola, con 7 clientes",
+    "verifyApprove": "para aprobar y enviar un médico con todo en orden",
+    "evalErrors": "documentos con problemas que pasaban como \"ok\", después de ajustar el prompt (prueba con 30)",
+    "shiftHours": "de guardias cargadas en el primer mes sin teclear, revisadas día a día"
   }
 }

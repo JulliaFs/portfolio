@@ -25,7 +25,7 @@
     "name": "Jullia",
     "role": "Estudante de ADS e AI Builder",
     "intro": "Automação, agentes e IA aplicada: começo pelo problema de quem opera e coloco em produção em dias.",
-    "ctaProjects": "Ver projetos",
+    "ctaProjects": "Ver o trabalho",
     "ctaCv": "Baixar currículo",
     "photoAlt": "Foto de Jullia",
     "photoPending": "foto a preencher"
@@ -45,12 +45,12 @@
     "links": "Links",
     "screens": "Telas",
     "screenPending": "print a preencher",
-    "noRepo": "O repositório é privado: aqui entram só prints e descrição.",
+    "noRepo": "O código fica num repositório privado.",
     "status": {
       "live": "Em uso real",
       "beta": "Beta fechado",
-      "school": "FIAP",
-      "study": "Acessibilidade",
+      "school": "Projeto da FIAP",
+      "study": "Projeto de estudo",
       "wip": "Em desenvolvimento",
       "work": "Projeto de trabalho"
     }
@@ -69,7 +69,7 @@
   "education": {
     "title": "Formação e certificados",
     "school": "FIAP",
-    "course": "Análise e Desenvolvimento de Sistemas (curso TDS)",
+    "course": "Análise e Desenvolvimento de Sistemas",
     "period": "2026 – atual (1º ano) · previsão de conclusão:",
     "certs": "Certificados",
     "subjects": "Disciplinas do 1º ano",
@@ -114,10 +114,13 @@
     "examples": "Exemplos"
   },
   "numbers": {
-    "credentialing": "Cadastro de médicos: de um dia inteiro para até 2 h focadas por dia, sozinha, com 7 clientes",
-    "shifts": "plantões e 2.556 horas lançados no primeiro mês",
-    "doctors": "médicos casados na primeira importação",
     "dayToMin": "1 dia → 2 h",
-    "approve": "para aprovar e enviar um médico com tudo em ordem"
+    "verify": "Verify",
+    "eval": "IA de documentos",
+    "shifts": "Plantões",
+    "verifyTime": "cadastro de médicos, de um dia inteiro para até 2 h focadas por dia, sozinha, com 7 clientes",
+    "verifyApprove": "para aprovar e enviar um médico com tudo em ordem",
+    "evalErrors": "documentos com problema que passavam como \"ok\", depois de ajustar o prompt (teste com 30)",
+    "shiftHours": "de plantão lançadas no primeiro mês sem digitar, conferidas dia a dia"
   }
 }
