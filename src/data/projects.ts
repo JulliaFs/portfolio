@@ -197,17 +197,6 @@ export const projects: Project[] = [
     text: { pt: { name: 'Diagnóstico de Gestão da Equipe Médica', tagline: 'Autoavaliação executiva em 4 pilares, com painel que o time comercial configura sozinho.', built: 'Construído sozinha, do design ao deploy.', result: 'Em teste interno.', decisions: [] } },
   },
   {
-    slug: 'medact',
-    featured: false,
-    status: 'work',
-    stack: ['Next.js', 'Supabase'],
-    repoPrivate: true,
-    links: [],
-    screens: [],
-    screensPending: true,
-    text: { pt: { name: 'MedAct', tagline: 'Plataforma B2B de credenciamento.', built: 'Fui a desenvolvedora principal.', decisions: [] } },
-  },
-  {
     slug: 'eclipse',
     featured: false,
     status: 'wip',
