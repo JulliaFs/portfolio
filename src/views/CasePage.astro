@@ -43,7 +43,29 @@ const alt = Object.fromEntries(langs.map((l) => [l, casePath(l, item.slug)])) as
         <h2>{t(lang, 'cases.result')}</h2>
         <p>{text.result}</p>
         {import.meta.env.DEV && item.resultPending && <p><Pending lang={lang} label={`${t(lang, 'cases.resultPending')}: ${item.resultPending}`} /></p>}
+        {text.table && (
+          <div class="table-scroll">
+            <table class="results">
+              <caption>{text.table.caption}</caption>
+              <thead><tr>{text.table.head.map((h) => <th scope="col">{h}</th>)}</tr></thead>
+              <tbody>{text.table.rows.map((r) => <tr>{r.map((c, i) => i === 0 ? <th scope="row">{c}</th> : <td>{c}</td>)}</tr>)}</tbody>
+            </table>
+          </div>
+        )}
       </section>
+      {text.figures && (
+        <section>
+          <h2>{t(lang, 'cases.examples')}</h2>
+          <div class="figs">
+            {text.figures.map((f) => (
+              <figure>
+                <img src={withBase(f.src)} alt={f.alt} loading="lazy" width="620" height="877" />
+                <figcaption>{f.caption}</figcaption>
+              </figure>
+            ))}
+          </div>
+        </section>
+      )}
       {import.meta.env.DEV && !item.video && (
         <section>
           <h2>{t(lang, 'cases.demo')}</h2>

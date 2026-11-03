@@ -93,7 +93,7 @@
   },
   "cases": {
     "title": "Case studies",
-    "lead": "Four tools the operation uses every day. Each case covers the problem, what I built, how AI was used, the tools and the result.",
+    "lead": "Four tools the operation uses every day, plus a test that measured the AI in one of them. Each case covers the problem, what I built, how AI was used, the tools and the result.",
     "view": "View case",
     "back": "Back to cases",
     "problem": "Problem",
@@ -110,7 +110,8 @@
     "wrong": "What went wrong",
     "demoAlt": "Video demo of Verify, with captions in Portuguese",
     "demoDownload": "Download the video",
-    "demoCaption": "Two-minute demo, silent, with captions in Portuguese. Physicians, clients and documents are made up, and the AI reviews were recorded in advance."
+    "demoCaption": "Two-minute demo, silent, with captions in Portuguese. Physicians, clients and documents are made up, and the AI reviews were recorded in advance.",
+    "examples": "Examples"
   },
   "numbers": {
     "credentialing": "Physician onboarding: from a full day to at most 2 focused hours a day, alone, across 7 clients",

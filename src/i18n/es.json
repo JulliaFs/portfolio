@@ -93,7 +93,7 @@
   },
   "cases": {
     "title": "Casos",
-    "lead": "Cuatro herramientas que la operación usa todos los días. Cada caso trae el problema, lo que construí, cómo entró la IA, las herramientas y el resultado.",
+    "lead": "Cuatro herramientas que la operación usa todos los días y una prueba que midió la IA de una de ellas. Cada caso trae el problema, lo que construí, cómo entró la IA, las herramientas y el resultado.",
     "view": "Ver el caso",
     "back": "Volver a los casos",
     "problem": "Problema",
@@ -110,7 +110,8 @@
     "wrong": "Qué salió mal",
     "demoAlt": "Demostración de Verify en video, con subtítulos en portugués",
     "demoDownload": "Descargar el video",
-    "demoCaption": "Demostración de 2 minutos, sin sonido y con subtítulos en portugués. Médicos, clientes y documentos son inventados, y los dictámenes de la IA ya estaban grabados."
+    "demoCaption": "Demostración de 2 minutos, sin sonido y con subtítulos en portugués. Médicos, clientes y documentos son inventados, y los dictámenes de la IA ya estaban grabados.",
+    "examples": "Ejemplos"
   },
   "numbers": {
     "credentialing": "Registro de médicos: de un día entero a un máximo de 2 h enfocadas al día, sola, con 7 clientes",

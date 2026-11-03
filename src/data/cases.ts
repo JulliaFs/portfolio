@@ -17,6 +17,10 @@ export type CaseText = {
   /** o que deu errado e o que mudou depois */
   wrong: string;
   result: string;
+  /** tabela de resultados, mostrada depois do resultado */
+  table?: { caption: string; head: string[]; rows: string[][] };
+  /** imagens em public/img, com legenda */
+  figures?: { src: string; alt: string; caption: string }[];
 };
 
 export type Case = {
@@ -44,6 +48,38 @@ export const cases: Case[] = [
         human: 'A IA lê documentos e sugere, mas só uma pessoa aprova a etapa inicial, cada documento e o envio ao hospital. Se a IA pular ou inventar um item, ele vai para revisão: ela nunca aprova sozinha. Ela também recebe os dados sem CPF nem nome de pessoa física.',
         wrong: 'No sistema antigo, o código lia campos no lugar errado e a IA decidiu por meses sem esses dados, sem nenhum erro aparente. No Verify, a tela mostra quantos campos vieram preenchidos, e o item sem dados vai para revisão humana. O alerta da IA ainda é cauteloso demais: a maioria é aceita por uma pessoa mesmo assim.',
         result: 'As regras ficaram num lugar só. Os 5 gestores acompanham os credenciamentos pelo painel de gestão, sem pedir status por mensagem. Antes, cadastrar médicos tomava um dia inteiro. Hoje, sozinha, acompanho 7 clientes em até 2 horas focadas por dia, e um médico com tudo em ordem leva cerca de 2 minutos para aprovar e enviar. A base migrou cerca de 1.000 médicos, o fluxo novo já tem dezenas de casos, e no dia a dia acompanho mais de 30 médicos em andamento. Mais de 270 testes automatizados, com dados fictícios, rodam antes de cada publicação.',
+      },
+    },
+  },
+  {
+    slug: 'avaliacao-ia-documentos',
+    tools: ['Gemini 2.5 Flash', 'Python', 'Pillow (documentos inventados)', 'Claude Code'],
+    text: {
+      pt: {
+        title: 'Medi a IA que lê documentos antes de mexer no prompt',
+        summary: 'Um teste com 30 certidões inventadas mostrou onde a IA do Verify erra. Um parágrafo a mais no prompt tirou 2 dos 3 erros e criou 1 novo.',
+        problem: 'No Verify, a IA lê cada certidão do médico e diz se está tudo certo ou se há problema: vencida, em nome de outra pessoa, documento errado ou ilegível. Eu via que a maioria dos alertas acabava aceita por uma pessoa, mas não sabia onde a IA errava, nem se mudar o prompt ia melhorar ou piorar.',
+        built: 'Um conjunto de 30 certidões do CRM inventadas, cada uma com a resposta certa anotada: 10 válidas, 8 vencidas ou vencendo, 6 em nome de outra pessoa, 3 documentos de outro tipo (RG, conta de luz e diploma) e 3 ilegíveis (borrada, cortada e sem contraste). Um script manda cada uma para a IA com o prompt de produção, compara com a resposta certa e conta acertos, alertas falsos e problemas que passaram. Rodei o prompt atual (v1) e um ajustado (v2), duas vezes cada, para ver também se a resposta se repete.',
+        ai: 'A IA testada é a mesma da produção: Gemini 2.5 Flash, com temperatura 0, e o código do Verify importado sem alteração. O agente do Verify no Claude Code gerou os documentos, escreveu o script e rodou o teste. Eu aprovei o desenho dos 30 casos e as regras: nenhum dado real, nada gravado no banco e sem publicar nada.',
+        human: 'O teste não muda nada sozinho. A v2 não foi para produção: trocar o prompt é decisão minha, depois de olhar caso a caso. E, no Verify, quando a IA falha ou demora demais, o documento vai para revisão humana.',
+        wrong: 'A v1 deixou passar como "ok" os 3 documentos ilegíveis. No borrado, ela "leu" a validade como a data de emissão mais um ano, uma data que não estava no papel. A v2 manda marcar como ilegível quando não dá para ler com certeza e nunca deduzir uma data. Ela pegou os ilegíveis, mas passou a deixar escapar uma certidão vencida, em parte por causa do rodapé "documento fictício", que só existe no teste. Não reescrevi o caso para melhorar o número.',
+        result: 'A v1 acertou 27 de 30 nas duas rodadas, com a mesma resposta em todos os documentos. A v2 acertou 29 e 28 de 30; na segunda rodada, uma chamada passou do tempo limite, e isso conta como erro. Nenhuma das duas deu alerta falso em documento válido. Cada rodada levou cerca de 8 segundos por documento e custou cerca de US$ 0,03 (estimativa pelo preço de tabela). Antes de levar a v2 para produção, falta resolver a certidão vencida e repetir com mais documentos. É uma amostra pequena: documentos sintéticos e limpos, só certidões do CRM e um modelo.',
+        table: {
+          caption: 'Acertos por grupo. v1 é o prompt atual e v2, o ajustado; cada célula mostra a rodada 1 e a rodada 2.',
+          head: ['Grupo', 'Casos', 'v1', 'v2'],
+          rows: [
+            ['Válidas', '10', '10 · 10', '10 · 10'],
+            ['Vencidas ou vencendo', '8', '8 · 8', '7 · 7'],
+            ['Em nome de outra pessoa', '6', '6 · 6', '6 · 6'],
+            ['Documento de outro tipo', '3', '3 · 3', '3 · 3'],
+            ['Ilegíveis', '3', '0 · 0', '3 · 2'],
+            ['Total', '30', '27 · 27', '29 · 28'],
+          ],
+        },
+        figures: [
+          { src: '/img/avaliacao/c01.jpg', alt: 'Certidão ético-profissional inventada, legível, com nome, datas e situação regular', caption: 'Caso 1: certidão válida. As duas versões acertaram nas duas rodadas.' },
+          { src: '/img/avaliacao/c28.jpg', alt: 'A mesma certidão inventada, borrada a ponto de não dar para ler as datas', caption: 'Caso 28: borrada. A v1 disse "ok" e inventou a validade; a v2 marcou como ilegível na primeira rodada e passou do tempo limite na segunda.' },
+        ],
       },
     },
   },
